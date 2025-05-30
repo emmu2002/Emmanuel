@@ -1,0 +1,203 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Verified</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(background.jpg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .order-summary {
+            background-color: #f2e6e600;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #abedf957;
+            margin: 20px 0;
+        }
+
+        .order-summary h2 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        .order-summary table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .order-summary th, .order-summary td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-summary th {
+            background-color: #f4e8e800;
+        }
+
+        .order-summary .total {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .order-summary .order-id {
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+
+        .thank-you-message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Order Confirmation</h1>
+
+    <!-- Order Verified Summary -->
+    <div class="order-summary">
+        <h2>Thank you for your order!</h2>
+        <p>Your order has been successfully placed. Here are your order details:</p>
+
+        <!-- Order Details Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Shipping Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Name:</strong> <span id="user-name"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Address:</strong> <span id="user-address"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>City:</strong> <span id="user-city"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Zip Code:</strong> <span id="user-zip"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Country:</strong> <span id="user-country"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Total Section -->
+        <div class="total">
+            Total: $<span id="total-amount">1</span>
+        </div>
+
+        <!-- Order ID Section -->
+        <div class="order-id">
+            Order ID: <span id="order-id">#947634</span>
+            <A href="paymentmethod.html">Payment</A>
+        </div>
+
+        <!-- Thank You Message -->
+        <div class="thank-you-message">
+            We will send you an email with the tracking information shortly.
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderID = urlParams.get('orderID');
+    const name = urlParams.get('name');
+    const address = urlParams.get('address');
+    const city = urlParams.get('city');
+    const zip = urlParams.get('zip');
+    const country = urlParams.get('country');
+
+    // Set the order details on the page
+    document.getElementById('user-name').textContent = name;
+    document.getElementById('user-address').textContent = address;
+    document.getElementById('user-city').textContent = city;
+    document.getElementById('user-zip').textContent = zip;
+    document.getElementById('user-country').textContent = country;
+    document.getElementById('order-id').textContent = `#${orderID}`;
+
+    // Sample cart data for total calculation (replace this with actual cart data)
+    const cart = [
+        { name: "Product 1", price: 10, quantity: 1},
+        { name: "Product 2", price: 12, quantity: 1 },
+        { name: "Product 3", price: 15, quantity: 2},
+        { name: "Product 4", price: 20, quantity: 1},
+    ];
+
+    // Function to calculate total
+    function calculateTotal() {
+        let totalAmount = 0;
+
+        cart.forEach(item => {
+            totalAmount += item.price * item.quantity;
+        });
+
+        return totalAmount.toFixed(2);
+    }
+
+    // Set the total amount on the page
+    document.getElementById('total-amount').textContent = calculateTotal();
+</script>
+
+
+
+</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Video Example</title>
+  <style>
+    #bgVideo {
+      position: fixed;        
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      
+      z-index: -1;             
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;             
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background.jpg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+</body>

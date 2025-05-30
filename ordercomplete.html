@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .order-form {
+            background-color: #eee2e200;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .order-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .order-form input, .order-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #8ad0fe6a;
+        }
+
+        .order-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #a9dae5;
+            color: rgb(20, 4, 4);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            background-color: #12c2e6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Order Page</h1>
+
+    <!-- Order Form -->
+    <div class="order-form">
+        <h3>Shipping Information</h3>
+        <form id="order-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required="" placeholder="Enter your full name">
+
+            <label for="address">Shipping Address</label>
+            <input type="text" id="address" name="address" required="" placeholder="Enter your shipping address">
+
+            <label for="state">state</label>
+            <input type="text" id="state" name="state" required="" placeholder="Enter your state">
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required="" placeholder="Enter your city">
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip" required="" placeholder="Enter your zip code">
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required="">
+                <option value="">Select a country</option>
+                <option value="India">India</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Japan">Japan</option>
+                <option value="USA-United States">USA-United States</option>
+            </select>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Handle order form submission
+    document.getElementById('order-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting the normal way
+
+        // Collect shipping details from the form
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const city = document.getElementById('city').value;
+        const zip = document.getElementById('zip').value;
+        const country = document.getElementById('country').value;
+
+        // Simple validation
+        if (name && address && city && zip && country) {
+            // Redirect to order-verified.html with query parameters
+            const orderID = Math.floor(Math.random() * 1000000); // Generate a random order ID
+            window.location.href = `order-verified.html?orderID=${orderID}&name=${encodeURIComponent(name)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&zip=${encodeURIComponent(zip)}&country=${encodeURIComponent(country)}`;
+        } else {
+            alert('Please fill in all shipping details.');
+        }
+    });
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busy Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(background.jpg.mp4);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product {
+            background-color: #e1c8c8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+            display: inline-block;
+            width: calc(33.333% - 40px);
+            box-sizing: border-box;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product .title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            font-size: 1.1em;
+            color: #E74C3C;
+            margin-bottom: 10px;
+        }
+
+        .product .description {
+            color: #777;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .product .badge {
+            background-color: #FF6347;
+            color: rgb(245, 242, 242);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-weight: bold;
+        }
+
+        .product .button {
+            background-color: #4CAF50;
+            color: rgb(227, 216, 216);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .product .button:hover {
+            background-color: #45a049;
+        }
+
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #cb7b7b;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 250px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .cart h3 {
+            margin-top: 0;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart ul li {
+            margin: 5px 0;
+        }
+
+        .cart .close-btn {
+            background-color: #FF6347;
+            color: rgb(228, 182, 182);
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            float: right;
+        }
+
+        .cart .close-btn:hover {
+            background-color: #E74C3C;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+<script>
+    let cart = [];
+
+    function addToCart(productName, productPrice) {
+        // Add item to cart
+        cart.push({name: productName, price: productPrice});
+
+        // Show cart
+        document.getElementById('cart').style.display = 'block';
+
+        // Update cart display
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = ''; // Clear current cart items
+
+        let total = 0;
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            cartItems.appendChild(li);
+            total += item.price;
+        });
+
+        // Update total
+        document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function closeCart() {
+        // Hide the cart
+        document.getElementById('cart').style.display = 'none';
+    }
+</script>
+
+
+
+</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Video Example</title>
+  <style>
+    #bgVideo {
+      position: fixed;        
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      
+      z-index: -1;             
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;             
+      color: rgba(223, 60, 60, 0.105);
+      text-align: center;
+      padding: 50px;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background.jpg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+</body>
