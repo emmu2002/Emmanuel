@@ -1,0 +1,342 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+/* Image Container */
+.image-container {
+    text-align: center;
+    position: relative;
+    margin: 2rem auto;
+}
+
+/* Open Book Image */
+.book-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 20px;
+}
+
+/* Big Button */
+.big-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.big-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+  transition: all .5s ease;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: .4s;
+}
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a i{
+  margin-right: 16px;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position: absolute;
+  background: #042331;
+  border-radius: 3px;
+  cursor: pointer;
+}
+label #btn{
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 6px 12px;
+  transition: all .5s;
+}
+label #cancel{
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel{
+  left: 195px;
+}
+#check:checked ~ section{
+  margin-left: 250px;
+}
+section{
+  background: url(wp4430570.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+}
+
+/* General Settings */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 2px solid #666;
+}
+
+/* Form Styling */
+/* Form Container Styling */
+/* Contact Form Styling */
+.contact-form {
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid #ddd;
+}
+
+/* Input Fields and Textarea */
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    background: #f8f9fa;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button */
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Placeholder Styling */
+.input-field::placeholder,
+.textarea-field::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Contact Card Styling */
+.contact-card {
+    list-style-type: none;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(135deg, #e6f7ff, #f0f8ff);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+}
+
+/* Contact Card Items */
+.contact-card li {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Title Styling */
+.card-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Card Link Styling */
+.card-link {
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.card-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contact-form,
+    .contact-card {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .contact-card li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.footer .footer-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer .footer-link:hover {
+    text-decoration: underline;
+}
+/* Navbar Styling */
+.navbar {
+    background: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #ffa500;
+}
+
+/* Login Button Styling */
+.login-btn {
+    background-color: #4c9df3;
+    color: rgb(16, 1, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: auto;
+    font-weight: bold;
+    margin-left: right; 
+}
+
+.login-btn:hover {
+    background-color: #177de9;
+    color: #fff;
+}
+
